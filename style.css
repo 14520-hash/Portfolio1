@@ -1,0 +1,58 @@
+/* จัดการโครงสร้างหน้าเว็บและฟอนต์พื้นฐาน */
+body {
+    font-family: 'Sarabun', 'Helvetica Neue', 'Arial', sans-serif;
+    font-size: 18px;
+    line-height: 1.8;
+    padding: 50px 20px;
+    max-width: 750px;
+    margin: 0 auto;
+    background-color: #fcfcfc;
+    color: #2b2b2b;
+}
+
+/* หัวข้อใหญ่ชื่อของคุณพจ */
+h1 {
+    font-size: 32px;
+    color: #111111;
+    border-bottom: 3px solid #1a73e8; /* เส้นใต้สีน้ำเงินเพิ่มความเด่น */
+    padding-bottom: 12px;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+/* จัดบล็อกของแต่ละหัวข้อให้ห่างกันพอดี */
+.section-box {
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px dotted #e0e0e0; /* เส้นคั่นบางๆ ระหว่างหัวข้อ */
+}
+
+/* ลบเส้นคั่นของหัวข้อสุดท้ายออก */
+.section-box:last-child {
+    border-bottom: none;
+}
+
+/* สไตล์ตัวหนังสือหัวข้อหลักที่เป็นลิงก์ */
+.section-link {
+    font-size: 22px;
+    font-weight: bold;
+    color: #1a73e8; /* สีน้ำเงินสไตล์ Google */
+    text-decoration: none; /* ไม่มีเส้นใต้ตอนเริ่มต้น */
+    display: inline-block;
+    margin-bottom: 8px;
+    transition: color 0.2s ease-in-out; /* ทำให้การเปลี่ยนสีนุ่มนวลขึ้น */
+}
+
+/* เมื่อเอาเมาส์ไปชี้ (Hover) ที่หัวข้อลิงก์ */
+.section-link:hover {
+    color: #d93025; /* เปลี่ยนเป็นสีแดง */
+    text-decoration: underline; /* แสดงเส้นใต้ */
+}
+
+/* สไตล์ข้อความรายละเอียดด้านล่างหัวข้อ */
+.details {
+    margin: 0;
+    padding-left: 20px;
+    color: #5f6368; /* สีเทาเข้มเพื่อให้อ่านง่ายและสบายตา */
+    font-weight: 400;
+}
