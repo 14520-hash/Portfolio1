@@ -4,16 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>พอร์ตโฟลิโอ - ปรัตถกร เปลี่ยนไธสง</title>
-    <!-- วางบรรทัดนี้เพื่อดึงโค้ด CSS มาใช้งาน -->
     
-</head>
+    <!-- ส่วนของ CSS: ใช้ตกแต่งหน้าตาตัวหนังสือและธีมเว็บ -->
+    <style>
+        body {
+            font-family: 'Sarabun', 'Helvetica Neue', 'Arial', sans-serif;
+            font-size: 18px;
+            line-height: 1.8;
+            padding: 50px 20px;
+            max-width: 750px;
+            margin: 0 auto;
+            background-color: #fcfcfc;
+            color: #2b2b2b;
+        }
 
+        /* หัวข้อใหญ่ชื่อของคุณพจ */
+        h1 {
+            font-size: 32px;
+            color: #111111;
+            border-bottom: 3px solid #1a73e8; /* เส้นใต้หนาสีน้ำเงิน */
+            padding-bottom: 12px;
+            margin-bottom: 40px;
+            font-weight: 700;
+            min-height: 48px; /* ล็อคความสูงไว้รองรับเอฟเฟกต์พิมพ์ตัวอักษร */
+        }
+
+        /* จัดบล็อกของแต่ละหัวข้อให้ห่างกันพอดี */
+        .section-box {
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px dotted #e0e0e0; /* เส้นคั่นบางๆ ระหว่างหัวข้อ */
+        }
+
+        /* ลบเส้นคั่นของหัวข้อสุดท้ายออก */
+        .section-box:last-child {
+            border-bottom: none;
+        }
+
+        /* สไตล์ตัวหนังสือหัวข้อหลักที่เป็นลิงก์ */
+        .section-link {
+            font-size: 22px;
+            font-weight: bold;
+            color: #1a73e8; /* สีน้ำเงินลิงก์ */
+            text-decoration: none; /* ไม่มีเส้นใต้ตอนเริ่มต้น */
+            display: inline-block;
+            margin-bottom: 8px;
+            transition: color 0.2s ease-in-out;
+        }
+
+        /* เมื่อเอาเมาส์ไปชี้ (Hover) ที่หัวข้อลิงก์ */
+        .section-link:hover {
+            color: #d93025; /* เปลี่ยนเป็นสีแดง */
+            text-decoration: underline; /* แสดงเส้นใต้ */
+        }
+
+        /* สไตล์ข้อความรายละเอียดด้านล่างหัวข้อ */
+        .details {
+            margin: 0;
+            padding-left: 20px;
+            color: #5f6368; /* สีเทาเข้มให้อ่านง่ายสบายตา */
+            font-weight: 400;
+        }
+    </style>
+</head>
 <body>
 
-    <h1>แฟ้มสะสมผลงาน: ปรัตถกร เปลี่ยนไธสง (พจ)</h1>
+    <!-- หัวข้อใหญ่ (มีลูกเล่นพิมพ์ตัวอักษรทีละตัวเมื่อเปิดหน้าเว็บ) -->
+    <h1 id="typing-title">แฟ้มสะสมผลงาน: ปรัตถกร เปลี่ยนไธสง (พจ)</h1>
     
     <!-- 1. ประวัติ -->
     <div class="section-box">
+        <!-- เปลี่ยนลิงก์เว็บใน href="..." ได้เลยครับ -->
         <a href="https://example.com" target="_blank" class="section-link">1. ประวัติ</a>
         <p class="details">เกิดวันที่ 12 พฤศจิกายน พ.ศ. 2551 (วันอังคาร) | เพศชาย</p>
     </div>
@@ -55,7 +116,44 @@
         <p class="details">เบอร์โทรศัพท์: 0633723009</p>
     </div>
 
-  <link rel="stylesheet" href="style.css">     
-    <script src="script.js"></script>
+    <!-- ส่วนของ JavaScript: ทำหน้าที่ควบคุมลูกเล่นการทำงานบนหน้าเว็บ -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            // 1. ลูกเล่นพิมพ์ชื่อตัวหนังสือทีละตัว (Typewriter Effect)
+            const titleElement = document.getElementById("typing-title");
+            if (titleElement) {
+                const originalText = titleElement.innerText;
+                titleElement.innerText = ""; 
+                let index = 0;
+
+                function typeWriter() {
+                    if (index < originalText.length) {
+                        titleElement.innerText += originalText.charAt(index);
+                        index++;
+                        setTimeout(typeWriter, 80); // ความเร็วในการพิมพ์ตัวอักษร
+                    }
+                }
+                typeWriter(); 
+            }
+
+            // 2. ระบบแจ้งเตือนยืนยันก่อนเปิดลิงก์ออกไปหน้าเว็บอื่น
+            const profileLinks = document.querySelectorAll(".section-link");
+            profileLinks.forEach(link => {
+                link.addEventListener("click", (event) => {
+                    const linkName = link.innerText; 
+                    
+                    // ถ้ายอดลิงก์ยังเป็นลิงก์สมมุติ (example.com) จะไม่แสดงป๊อปอัพเตือนเพื่อความสะดวกตอนทดสอบ
+                    if (!link.href.includes("example.com")) {
+                        const leaveSite = confirm(`คุณต้องการเปิดลิงก์ใหม่เพื่อไปยังหน้าเว็บของ "${linkName}" ใช่หรือไม่?`);
+                        if (!leaveSite) {
+                            event.preventDefault(); // ถ้ายกเลิก จะไม่เปิดหน้าเว็บ
+                        }
+                    }
+                });
+            });
+
+        });
+    </script>
 </body>
 </html>
