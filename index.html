@@ -3,52 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Cute Portfolio 🌟</title>
-    <!-- นำเข้า Google Fonts ฟอนต์น่ารักๆ -->
+    <title>My Cute Portfolio with Animations 🌈</title>
+    <!-- นำเข้าฟอนต์ลายมือน่ารักๆ จาก Google Fonts -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Itim&family=Mitr:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Itim&family=Mitr:wght@300;400&display=swap" rel="stylesheet">
     
     <style>
-        /* ลอนคลื่นแอนิเมชันเปิดตัวหน้าเว็บ */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+        /* โหลดหน้าเว็บแล้วกล่องจะค่อยๆ เลื่อนขึ้นอย่างนุ่มนวล */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(3deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        /* แอนิเมชันให้รูปภาพการ์ตูนลอยขึ้นลงเบาๆ */
+        @keyframes floatEffect {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
         }
 
         html {
-            scroll-behavior: smooth;
+            scroll-behavior: smooth; /* กดลิงก์แล้วหน้าเว็บจะเลื่อนลงนุ่มๆ */
         }
         body {
             font-family: 'Itim', 'Mitr', sans-serif;
-            background-color: #fff5f5; /* สีชมพูนมพาสเทลอ่อนๆ */
-            background-image: radial-gradient(#ffe3e3 15%, transparent 15%), radial-gradient(#ffe3e3 15%, transparent 15%);
-            background-size: 30px 30px;
-            background-position: 0 0, 15px 15px;
+            background-color: #fff9f2; /* สีครีมพาสเทลละมุนตา */
             margin: 0;
             padding: 0;
             color: #5d5061;
         }
 
-        /* เมนูด้านบนสไตล์ขนมหวาน */
+        /* แถบเมนูด้านบนยึดอยู่กับที่ */
         header {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.95);
             padding: 15px;
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
-            box-shadow: 0 4px 15px rgba(255, 182, 193, 0.3);
+            box-shadow: 0 4px 20px rgba(255, 167, 38, 0.15);
             z-index: 1000;
             backdrop-filter: blur(5px);
         }
@@ -60,71 +53,72 @@
             flex-wrap: wrap;
         }
         nav a {
-            color: #ff7b90;
+            color: #ff9f43;
             text-decoration: none;
-            margin: 5px 12px;
+            margin: 5px 15px;
             font-weight: bold;
             font-size: 1.1rem;
-            padding: 5px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
             transition: all 0.3s ease;
         }
-        /* เอฟเฟกต์ขยับตอนเอาเมาส์ชี้เมนู */
+        /* เอฟเฟกต์เด้งดุ๊กดิ๊กตอนเอาเมาส์ไปชี้เมนู */
         nav a:hover {
-            background-color: #ff7b90;
+            background-color: #ff9f43;
             color: white;
-            transform: scale(1.1) rotate(-2deg);
+            transform: scale(1.15) rotate(-2deg);
         }
 
         /* กล่องเนื้อหาหลัก */
         .container {
             max-width: 700px;
-            margin: 140px auto 60px auto;
+            margin: 150px auto 60px auto;
             padding: 0 20px;
         }
 
-        /* ตกแต่งกล่องข้อความแต่ละหัวข้อให้มนๆ เหมือนก้อนเมฆ */
+        /* จัดแต่งกล่องข้อมูลให้ออกมาเหมือนก้อนเมฆมนๆ */
         section {
             background: white;
-            padding: 30px;
-            margin-bottom: 35px;
+            padding: 35px;
+            margin-bottom: 40px;
             border-radius: 30px;
-            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
-            border: 3px dashed #ffe3e3;
-            animation: fadeIn 0.8s ease-out;
+            box-shadow: 0 8px 24px rgba(255, 159, 67, 0.1);
+            border: 3px dashed #ffeaa7;
+            animation: fadeInUp 0.8s ease-out;
             position: relative;
-            overflow: hidden;
-        }
-
-        /* แอนิเมชันรูปตกแต่งดุ๊กดิ๊กด้านมุมกล่อง (ภาพเคลื่อนไหว) */
-        section::after {
-            content: "✨";
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 1.5rem;
-            animation: float 3s ease-in-out infinite;
         }
 
         h2 {
-            color: #ff6b81;
+            color: #ff9f43;
             font-size: 1.6rem;
-            border-bottom: 3px dotted #ffb6c1;
+            border-bottom: 3px dotted #ffeaa7;
             padding-bottom: 8px;
             margin-top: 0;
             display: inline-block;
         }
 
-        /* ตกแต่งตัวการ์ตูนต้อนรับด้านบน */
-        .welcome-avatar {
+        /* ส่วนจัดวางภาพเคลื่อนไหวการ์ตูน */
+        .gif-container {
             text-align: center;
-            font-size: 4rem;
-            animation: float 4s ease-in-out infinite;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            animation: floatEffect 4s ease-in-out infinite;
+        }
+        .cute-gif {
+            width: 120px; /* ปรับขนาดความกว้างภาพการ์ตูนขยับตามชอบ */
+            height: auto;
+            border-radius: 15px;
+        }
+        
+        .side-gif {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            width: 50px;
+            height: auto;
         }
 
         ul {
-            list-style-type: "🌸 ";
+            list-style-type: "⭐ ";
             padding-left: 25px;
         }
         li {
@@ -132,66 +126,58 @@
             font-size: 1.1rem;
         }
         
-        /* สไตล์ลิงก์ติดต่อ */
+        /* สไตล์ลิงก์ช่องทางติดต่อ */
         .contact-link {
-            color: #ff6b81;
+            color: #ff9f43;
             text-decoration: none;
             font-weight: bold;
-            border-bottom: 2px solid transparent;
             transition: all 0.3s;
         }
         .contact-link:hover {
-            border-color: #ff6b81;
+            color: #ee5253;
             padding-left: 5px;
-        }
-
-        /* ปุ่มกดดุ๊กดิ๊กพิเศษ */
-        .cute-btn {
-            display: inline-block;
-            background-color: #ffb6c1;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 15px;
-            text-decoration: none;
-            animation: pulse 2s infinite;
-            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-    <!-- แถบเมนูสีหวานขยับได้ -->
+    <!-- แถบเมนูลิงก์ตัวหนังสือ (กดแล้วเลื่อนหน้าจอ) -->
     <header>
         <nav>
-            <a href="#about">☁️ 1. ประวัติส่วนตัว</a>
-            <a href="#education">🎒 2. การศึกษา</a>
+            <a href="#about">🧸 1. ประวัติส่วนตัว</a>
+            <a href="#education">📚 2. การศึกษา</a>
             <a href="#activities">🎨 3. ผลงานกิจกรรม</a>
-            <a href="#skills">🍰 4. ทักษะความสามารถ</a>
+            <a href="#skills">⚡ 4. ทักษะความสามารถ</a>
             <a href="#certificates">🏆 5. เกียรติบัตร</a>
-            <a href="#contact">💌 6. ติดต่อเรา</a>
+            <a href="#contact">📬 6. ติดต่อเรา</a>
         </nav>
     </header>
 
     <div class="container">
 
-        <!-- ตัวการ์ตูนดุ๊กดิ๊กต้อนรับ -->
-        <div class="welcome-avatar">(｡♥‿♥｡)</div>
+        <!-- ภาพเคลื่อนไหวการ์ตูนหมีทักทายด้านบนสุด -->
+        <div class="gif-container">
+            <img class="cute-gif" src="https://giphy.com" alt="Cute Bear">
+            <h1 style="font-size: 2rem; color: #ff9f43; margin-top: 10px;">ยินดีต้อนรับสู่เว็บของฉันนะ!</h1>
+        </div>
 
         <!-- 1. ประวัติส่วนตัว -->
         <section id="about">
-            <h2>☁️ 1. ประวัติส่วนตัว</h2>
-            <p><strong>ชื่อ-นามสกุล:</strong> น้องพาสเทล น่ารักดี</p>
-            <p><strong>ชื่อเล่น:</strong> ถุงแป้ง</p>
-            <p><strong>วันเกิด:</strong> 14 กุมภาพันธ์ ♥</p>
-            <p><strong>คติประจำใจ:</strong> เหนื่อยก็พัก แล้วค่อยตื่นมากินขนมหวานแล้วลุยต่อ!</p>
+            <!-- ภาพแมวขยับดุ๊กดิ๊กมุมกล่อง -->
+            <img class="side-gif" src="https://giphy.com" alt="Cat animation">
+            <h2>🧸 1. ประวัติส่วนตัว</h2>
+            <p><strong>ชื่อ-นามสกุล:</strong> น้องเมโลดี้ สดใสสม่ำเสมอ</p>
+            <p><strong>ชื่อเล่น:</strong> ขนมผิง</p>
+            <p><strong>วันเกิด:</strong> 25 ธันวาคม 🎄</p>
+            <p><strong>คติพจน์:</strong> ความพยายามอยู่ที่ไหน ความสำเร็จและของอร่อยอยู่ที่นั่น!</p>
         </section>
 
         <!-- 2. ประวัติการศึกษา -->
         <section id="education">
-            <h2>🎒 2. ประวัติการศึกษา</h2>
+            <h2>📚 2. ประวัติการศึกษา</h2>
             <ul>
-                <li><strong>มัธยมศึกษา:</strong> โรงเรียนกิ๊วก๊าววิทยา (สายศิลป์-คำนวณ)</li>
-                <li><strong>ปริญญาตรี:</strong> มหาวิทยาลัยเบเกอรี่ คณะวิทยาการน่ารัก</li>
+                <li><strong>มัธยมศึกษา:</strong> โรงเรียนพาสเทลวิทยา (สายวิทย์-คอมพิวเตอร์)</li>
+                <li><strong>ปริญญาตรี:</strong> มหาวิทยาลัยสร้างสรรค์ คณะเทคโนโลยีสารสนเทศ</li>
             </ul>
         </section>
 
@@ -199,40 +185,40 @@
         <section id="activities">
             <h2>🎨 3. ผลงานและกิจกรรม</h2>
             <ul>
-                <li><strong>2568:</strong> ออกแบบธีมสติกเกอร์ไลน์สุดคิ้วท์ ยอดดาวน์โหลด 1,000+</li>
-                <li><strong>2567:</strong> เข้าร่วมค่ายเยาวชนสร้างสรรค์เว็บสวยด้วยมือเรา</li>
-                <li><strong>2566:</strong> ตัวแทนถือป้ายขบวนพาเหรดงานกีฬาสี</li>
+                <li><strong>2568:</strong> ได้รับคัดเลือกเป็นผู้ออกแบบกราฟิกประจำค่ายอาสา</li>
+                <li><strong>2567:</strong> จัดทำวิดีโอแอนิเมชันสั้นเพื่อการศึกษา ยอดผู้เข้าชม 5,000+ ครั้ง</li>
+                <li><strong>2566:</strong> เข้าร่วมโครงการอบรมการเขียนโค้ดจัดทำเว็บเบื้องต้น</li>
             </ul>
         </section>
 
         <!-- 4. ความสามารถและทักษะ -->
         <section id="skills">
-            <h2>🍰 4. ความสามารถและทักษะ</h2>
-            <p><strong>ความสามารถพิเศษ:</strong> วาดรูปการ์ตูนลายเส้นมินิมอล, ตกแต่งภาพโทนละมุน</p>
-            <p><strong>ทักษะคอมพิวเตอร์:</strong> HTML / CSS ระดับเริ่มต้น, Canva Pro, Photoshop</p>
+            <!-- ภาพสติกเกอร์ขยับดุ๊กดิ๊กมุมกล่อง -->
+            <img class="side-gif" src="https://giphy.com" alt="Sparkle animation">
+            <h2>⚡ 4. ความสามารถและทักษะ</h2>
+            <p><strong>ทักษะงานออกแบบ:</strong> ออกแบบ UI/UX น่ารัก, วาดภาพประกอบลายเส้นน่าเอ็นดู</p>
+            <p><strong>โปรแกรมคอมพิวเตอร์:</strong> HTML, CSS, Figma, Procreate, Illustrator</p>
         </section>
 
         <!-- 5. เกียรติบัตร -->
         <section id="certificates">
             <h2>🏆 5. เกียรติบัตร</h2>
             <ul>
-                <li>ได้รับรางวัลขวัญใจมหาชน ประกวดวาดภาพระบายสีพาสเทล <a href="#" class="cute-btn">ดูรูปใบเซอร์</a></li>
-                <li>ผ่านการทดสอบหลักสูตรความรู้พื้นฐานการออกแบบเว็บไซต์น่ารัก</li>
+                <li>เกียรติบัตรผู้สอบผ่านการประเมินโครงงานดิจิทัลดีเด่น</li>
+                <li>ใบเซอร์ผู้ผ่านหลักสูตรพัฒนาเว็บไซต์ให้ตอบโจทย์ผู้ใช้งานรุ่นใหม่</li>
             </ul>
         </section>
 
         <!-- 6. ช่องทางการติดต่อ -->
         <section id="contact">
-            <h2>💌 6. ช่องทางการติดต่อ</h2>
-            <p><strong>เบอร์โทรสุดคิ้วท์:</strong> 089-xxx-xxxx</p>
-            <p><strong>Email:</strong> <a class="contact-link" href="mailto:cute@example.com">cute@example.com</a></p>
-            <p><strong>Instagram:</strong> <a class="contact-link" href="https://instagram.com" target="_blank">@cute_pastel</a></p>
-            <p><strong>Facebook:</strong> <a class="contact-link" href="https://facebook.com" target="_blank">Pastel Studio</a></p>
+            <h2>📬 6. ช่องทางการติดต่อ</h2>
+            <p><strong>เบอร์โทรศัพท์:</strong> 095-xxx-xxxx</p>
+            <p><strong>Email:</strong> <a class="contact-link" href="mailto:cookie@example.com">cookie@example.com</a></p>
+            <p><strong>Instagram:</strong> <a class="contact-link" href="https://instagram.com" target="_blank">@cookie_creativestudio</a></p>
+            <p><strong>Line ID:</strong> @cookie_cute</p>
         </section>
 
     </div>
 
 </body>
 </html>
-
-
