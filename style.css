@@ -3,331 +3,281 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | นางสาวรัชดาภรณ์ สีลโสภโน</title>
+    <title>My Pink Cute Portfolio - คลิกอ่านได้</title>
+    <!-- นำเข้าฟอนต์น่ารักๆ อ่านง่ายจาก Google Fonts -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    
     <style>
-        /* นำเข้าฟอนต์ภาษาไทยละมุน อ่านง่าย */
-        @import url('https://googleapis.com');
-        
+        /* ตั้งค่าพื้นฐาน */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Sarabun', sans-serif;
+            font-family: 'Prompt', sans-serif;
+            scroll-behavior: smooth; /* เลื่อนหน้าจอแบบนุ่มนวล */
         }
 
+        /* พื้นหลังสีชมพูพาสเทลไล่เฉด และอนิเมชั่นหิมะดาวตก */
         body {
-            background-color: #fff5f7; /* พื้นหลังสีชมพูพาสเทลอ่อน */
-            color: #5d4047; /* สีตัวอักษรน้ำตาลเข้มอมชมพูเพื่อให้อ่านง่ายและสบายตา */
+            background: linear-gradient(-45deg, #ffeef8, #ffd3eb, #ffb7df, #ffeef8);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #4a3b45;
             line-height: 1.8;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* 🌸 แอนิเมชันหัวใจและสิ่งน่ารักลอยในพื้นหลังเบา ๆ ไม่บังตัวหนังสือ */
-        @keyframes floatCuteThings {
-            0% { transform: translateY(105vh) rotate(0deg) scale(0.6); opacity: 0; }
-            10% { opacity: 0.4; }
-            90% { opacity: 0.4; }
-            100% { transform: translateY(-10vh) rotate(360deg) scale(1.2); opacity: 0; }
+        /* แอนิเมชั่นพื้นหลังเคลื่อนไหว */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        .bg-element {
+        /* เอฟเฟกต์ดาวตกจำลอง (CSS Snow/Stars) */
+        body::before {
+            content: "🌸";
             position: fixed;
+            top: -10%;
+            left: 10%;
             font-size: 20px;
+            opacity: 0.7;
+            animation: fall 8s linear infinite;
             z-index: -1;
-            user-select: none;
-            pointer-events: none;
         }
-        .e1 { left: 8%; animation: floatCuteThings 14s infinite linear; }
-        .e2 { left: 25%; animation: floatCuteThings 9s infinite linear 2s; }
-        .e3 { left: 60%; animation: floatCuteThings 16s infinite linear 1s; }
-        .e4 { left: 88%; animation: floatCuteThings 11s infinite linear 4s; }
+        body::after {
+            content: "✨";
+            position: fixed;
+            top: -5%;
+            right: 20%;
+            font-size: 25px;
+            opacity: 0.6;
+            animation: fall 12s linear infinite 2s;
+            z-index: -1;
+        }
 
-        /* ส่วนหัวเว็บ (Header) */
-        header {
-            background: linear-gradient(135deg, #ffc0cb, #ffe4e1);
-            color: #6d4c41;
-            padding: 50px 20px;
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* แถบเมนูด้านบนสีชมพูเข้ม ดุ๊กดิ๊กได้ */
+        nav {
+            background-color: rgba(255, 105, 180, 0.9);
+            backdrop-filter: blur(5px);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(255, 182, 193, 0.2);
-            border-bottom: 5px dashed #ffffff;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+            z-index: 1000;
         }
 
-        header h1 {
-            font-size: 2.4rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-            text-shadow: 2px 2px 0px #ffffff;
-            color: #d15b74;
-        }
-
-        header p {
-            font-size: 1.1rem;
-            background: rgba(255, 255, 255, 0.6);
-            display: inline-block;
-            padding: 4px 18px;
-            border-radius: 20px;
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 16px;
             font-weight: 600;
-            color: #7d5260;
-        }
-
-        /* คอนเทนเนอร์หลัก */
-        .container {
-            max-width: 800px;
-            margin: 35px auto;
-            padding: 0 20px;
-        }
-
-        /* กล่องเนื้อหาแต่ละหัวข้อ */
-        section {
-            background-color: #ffffff; /* กล่องสีขาวตัดกับพื้นหลัง */
-            padding: 28px;
-            margin-bottom: 25px;
+            display: inline-block;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 5px 10px;
             border-radius: 20px;
-            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.12);
-            border: 2px solid #ffe4e1;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* เอฟเฟกต์ยกตัวเมื่อเมาส์ชี้ */
+        /* เมาส์ชี้แล้วเมนูขยาย+ดุ๊กดิ๊ก */
+        nav a:hover {
+            color: #ff69b4;
+            background-color: white;
+            transform: scale(1.2) translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+
+        /* กล่องเนื้อหาหลัก */
+        .container {
+            max-width: 850px;
+            margin: 120px auto 50px auto;
+            padding: 20px;
+        }
+
+        /* ตกแต่งการแสดงผลแต่ละหัวข้อ */
+        section {
+            background: rgba(255, 255, 255, 0.85);
+            border: 2px solid #ffb7df;
+            padding: 35px;
+            border-radius: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 20px rgba(255, 183, 223, 0.4);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         section:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 22px rgba(255, 182, 193, 0.25);
-            border-color: #ffb6c1;
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.4);
+            background: rgba(255, 255, 255, 0.95);
+            border-color: #ff69b4;
         }
 
-        /* แอนิเมชันไอคอนส่ายดุ๊กดิ๊ก */
-        @keyframes wiggle {
-            0%, 100% { transform: rotate(0deg); }
-            50% { transform: rotate(12deg); }
-        }
-
+        /* หัวข้อสีชมพูหวานเข้ม */
         h2 {
-            color: #d15b74;
-            margin-bottom: 18px;
-            font-size: 1.45rem;
-            border-bottom: 2px dotted #ffcbd5;
-            padding-bottom: 8px;
+            font-family: 'Mitr', sans-serif;
+            color: #d81b60;
+            font-size: 26px;
+            border-bottom: 3px dashed #ff69b4;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 10px;
         }
 
         h2::before {
-            content: "🌸";
+            content: "💖";
+            margin-right: 10px;
             display: inline-block;
+            animation: heartbeat 1.5s infinite;
         }
 
-        section:hover h2::before {
-            animation: wiggle 0.5s ease infinite;
-        }
-
-        .profile-info p {
-            margin-bottom: 10px;
-            font-size: 1.05rem;
-        }
-
-        .profile-info strong {
-            color: #b5475e;
-            display: inline-block;
-            width: 110px;
-        }
-
-        /* ตารางประวัติการศึกษา */
-        table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin-top: 10px;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #ffe4e1;
-        }
-
-        th, td {
-            padding: 12px 15px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #fff0f2;
-            color: #d15b74;
-            font-weight: 600;
-        }
-
-        td {
-            background-color: #ffffff;
-            border-bottom: 1px solid #fff0f2;
-        }
-
-        /* สไตล์รายการผลงานและกิจกรรม */
-        ul {
-            list-style: none;
-        }
-
-        li {
-            margin-bottom: 12px;
-            position: relative;
-            padding-left: 28px;
-            font-size: 1.05rem;
-        }
-
-        li::before {
-            content: "✨";
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        /* แถบทักษะความสามารถ */
-        .skill-item {
-            margin-bottom: 18px;
-        }
-
-        .skill-name {
-            font-weight: 600;
-            margin-bottom: 6px;
-            display: block;
-            font-size: 0.95rem;
-        }
-
-        .bar-container {
-            background-color: #fff0f2;
-            border-radius: 20px;
-            height: 14px;
-            width: 100%;
-            overflow: hidden;
-            border: 1px solid #ffe4e1;
-        }
-
-        @keyframes loadBar {
-            from { width: 0; }
-        }
-
-        .bar-fill {
-            background: linear-gradient(90deg, #ffb6c1, #ff69b4);
-            height: 100%;
-            border-radius: 20px;
-            animation: loadBar 1.4s ease-out;
-        }
-
-        /* ช่องทางการติดต่อ */
-        .contact-grid {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 10px;
-        }
-
-        @keyframes pulse {
+        @keyframes heartbeat {
             0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
+            20% { transform: scale(1.25); }
+            40% { transform: scale(1.1); }
+            60% { transform: scale(1.25); }
+            80% { transform: scale(1); }
             100% { transform: scale(1); }
         }
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 20px;
-            color: #ffffff;
+        p, li {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #5c4755;
+        }
+
+        strong {
+            color: #ad1457;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 5px;
+        }
+
+        ul li::before {
+            content: "💝 ";
+            margin-right: 5px;
+        }
+
+        /* ปุ่มกดเพื่อเข้าไปอ่านต่อ (Read More Button) */
+        .read-more-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 24px;
+            background: linear-gradient(135deg, #ff69b4, #ff4081);
+            color: white;
             text-decoration: none;
-            border-radius: 25px;
-            font-weight: 600;
-            box-shadow: 0 4px 10px rgba(255, 105, 180, 0.15);
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 5px 15px rgba(255, 64, 129, 0.4);
             transition: all 0.3s ease;
-            font-size: 1rem;
-            flex: 1;
-            min-width: 200px;
+            animation: pulseBtn 2s infinite;
         }
 
-        .btn:hover {
-            transform: scale(1.03);
-            box-shadow: 0 6px 15px rgba(255, 105, 180, 0.3);
-            animation: pulse 1s infinite;
+        .read-more-btn:hover {
+            transform: scale(1.1) translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 64, 129, 0.6);
+            background: linear-gradient(135deg, #ff4081, #d81b60);
         }
 
-        .btn-phone { background: linear-gradient(135deg, #ff8da1, #ff6b8b); }
-        .btn-fb { background: linear-gradient(135deg, #5c9ce6, #1d72b8); }
-
-        /* ส่วนท้ายเว็บ */
-        footer {
-            text-align: center;
-            padding: 25px;
-            color: #a1887f;
-            font-size: 0.85rem;
-            margin-top: 35px;
-            border-top: 2px dashed #ffe4e1;
+        @keyframes pulseBtn {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
-        /* รองรับการแสดงผลบนหน้าจอมือถืออย่างสมบูรณ์ */
-        @media (max-width: 600px) {
-            header h1 { font-size: 1.8rem; }
-            section { padding: 20px; }
-            table, thead, tbody, th, td, tr { display: block; }
-            thead tr { position: absolute; top: -9999px; left: -9999px; }
-            tr { border: 1px solid #ffe4e1; margin-bottom: 12px; border-radius: 12px; overflow: hidden; }
-            td { border: none; border-bottom: 1px solid #fff0f2; position: relative; padding-left: 45%; text-align: right; }
-            td:before { position: absolute; top: 12px; left: 15px; width: 40%; text-align: left; font-weight: bold; color: #d15b74; }
-            td:nth-of-type(1):before { content: "ระดับชั้น"; }
-            td:nth-of-type(2):before { content: "สถาบันการศึกษา"; }
-            .profile-info strong { display: block; margin-bottom: 2px; }
-            .btn { width: 100%; }
+        /* ลิงก์ช่องทางติดต่อขยับได้ */
+        .contact-link {
+            display: inline-block;
+            color: #d81b60;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+        .contact-link:hover {
+            color: #ff4081;
+            transform: translateX(5px);
+            border-bottom: 2px solid #ff4081;
         }
     </style>
 </head>
 <body>
 
-    <!-- 🌸 องค์ประกอบแอนิเมชันพื้นหลังลอยแบบโปร่งแสงเบา ๆ -->
-    <div class="bg-element e1">💗</div>
-    <div class="bg-element e2">🌸</div>
-    <div class="bg-element e3">💖</div>
-    <div class="bg-element e4">✨</div>
-
-    <!-- ส่วนหัวหน้าเว็บ -->
-    <header>
-        <h1>นางสาวรัชดาภรณ์ สีลโสภโน</h1>
-        <p>🎀 แฟ้มสะสมผลงานอิเล็กทรอนิกส์ (E-Portfolio) 🎀</p>
-    </header>
+    <!-- เมนูด้านบน ขยับและเด้งได้ -->
+    <nav>
+        <a href="#about">ประวัติส่วนตัว</a>
+        <a href="#education">ประวัติการศึกษา</a>
+        <a href="#portfolio">ผลงาน & กิจกรรม</a>
+        <a href="#skills">ทักษะความสามารถ</a>
+        <a href="#awards">รางวัลที่ได้รับ</a>
+        <a href="#contact">ติดต่อเรา</a>
+    </nav>
 
     <div class="container">
 
         <!-- 1. ประวัติส่วนตัว -->
-        <section id="profile">
+        <section id="about" style="animation-delay: 0.1s;">
             <h2>1. ประวัติส่วนตัว</h2>
-            <div class="profile-info">
-                <p><strong>ชื่อ-นามสกุล:</strong> นางสาวรัชดาภรณ์ สีลโสภโน</p>
-                <p><strong>ชื่อเล่น:</strong> นุ้ย</p>
-                <p><strong>ส่วนสูง:</strong> 159 เซนติเมตร</p>
-                <p><strong>น้ำหนัก:</strong> 53 กิโลกรัม</p>
-                <p><strong>สัญชาติ:</strong> ไทย &nbsp;&nbsp;&nbsp;&nbsp; <strong>ศาสนา:</strong> พุทธ</p>
-            </div>
+            <p><strong>ชื่อ-นามสกุล:</strong> [ชื่อของคุณ นามสกุลของคุณ]</p>
+            <p><strong>ชื่อเล่น:</strong> [ชื่อเล่นสุดน่ารัก]</p>
+            <p><strong>วันเกิด:</strong> [วว/ดด/ปปปป]</p>
+            <p><strong>สโลแกนประจำตัว:</strong> "ขยัน ตั้งใจ และพร้อมเรียนรู้สิ่งใหม่ๆ เสมอ! ✨"</p>
+            <!-- ใส่ลิงก์สำหรับกดเข้าไปอ่านประวัติเต็มๆ ตรง href="..." -->
+            <a href="https://example.com" target="_blank" class="read-more-btn">🔍 คลิกอ่านประวัติส่วนตัวเพิ่มเติม</a>
         </section>
 
         <!-- 2. ประวัติการศึกษา -->
-        <section id="education">
+        <section id="education" style="animation-delay: 0.2s;">
             <h2>2. ประวัติการศึกษา</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ระดับชั้นที่ศึกษา</th>
-                        <th>สถาบันการศึกษา</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>อนุบาล 1 - มัธยมศึกษาปีที่ 3</td>
-                        <td>โรงเรียนเพลินจิตวิทยา</td>
-                    </tr>
-                    <tr>
-                        <td>มัธยมศึกษาปีที่ 4 - มัธยมศึกษาปีที่ 6</td>
-                        <td>โรงเรียนพานทอง</td>
-                    </tr>
-                </tbody>
-            </table>
+            <p><strong>🎓 ระดับปริญญาตรี / มัธยมปลาย:</strong> [ชื่อโรงเรียน/มหาวิทยาลัย] - [สาขาวิชา]</p>
+            <p style="padding-left: 25px; font-size: 14px; color: #888;">ปีการศึกษา [พ.ศ. เริ่มต้น] - [พ.ศ. สิ้นสุด]</p>
+            <p><strong>🎒 ระดับมัธยมต้น:</strong> [ชื่อโรงเรียนเดิมของคุณ]</p>
+            <p style="padding-left: 25px; font-size: 14px; color: #888;">ปีการศึกษา [พ.ศ. เริ่มต้น] - [พ.ศ. สิ้นสุด]</p>
+            <!-- ใส่ลิงก์สำหรับกดเข้าไปดูใบเกรดหรือรายละเอียดการศึกษา -->
+            <a href="https://example.com" target="_blank" class="read-more-btn">📖 คลิกอ่านประวัติการศึกษาทั้งหมด</a>
         </section>
 
-        <!-- 3. ผลงานและกิจกรรม -->
-        <section id="activities">
+        <!-- 3. ผลงาน และกิจกรรม -->
+        <section id="portfolio" style="animation-delay: 0.3s;">
+            <h2>3. ผลงาน และกิจกรรม</h2>
+            <ul>
+                <li><strong>โปรเจกต์สร้างสรรค์:</strong> [ใส่ชื่อผลงานเด่นๆ ของคุณ เช่น ทำเว็บ, ออกแบบกราฟิก]</li>
+                <li><strong>กิจกรรมสถาบัน:</strong> [เช่น เข้าร่วมงานเปิดบ้านนิทรรศการ, งานกีฬาสี]</li>
+                <li><strong>กิจกรรมจิตอาสา:</strong> [เช่น ปลูกป่าชายเลน, บริจาคสิ่งของช่วยเหลือชุมชน]</li>
+            </ul>
+            <!-- ใส่ลิงก์ไปยังคลังผลงาน เช่น Google Drive หรือเว็บไซต์รวบรวมผลงาน -->
+            <a href="https://example.com" target="_blank" class="read-more-btn">📂 คลิกเปิดดูรูปภาพผลงานและกิจกรรม</a>
+        </section>
 
+        <!-- 4. ความสามารถและทักษะ -->
+        <section id="skills" style="animation-delay: 0.4s;">
+            <h2>4. ความสามารถและทักษะ</h2>
+            <ul>
+                <li><strong>ทักษะด้านภาษา:</strong> ภาษาไทย (ดีเยี่ยม) / ภาษาอังกฤษ (ระดับสื่อสารได้)</li>
+                <li><strong>คอมพิวเตอร์ & ไอที:</strong> HTML, CSS, Microsoft Office, Canva, Photoshop</li>
+                <li><strong>ทักษะทางสังคม (Soft Skills):</strong> ทำงานเป็นทีมยอดเยี่ยม, ปรับตัวไว, มีความคิดสร้างสรรค์</li>
+            </ul>
+            <!-- ใส่ลิงก์เจาะลึกทักษะ เช่น ลิงก์ทดสอบภาษา หรือวิดีโอแนะนำตัวโชว์ทักษะ -->
+            <a href="https://example.com" target="_blank" class="read-more-btn">💡 คลิกอ่านรายละเอียดทักษะความสามารถ</a>
+        </section>
 
