@@ -3,31 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>แฟ้มสะสมผลงานออนไลน์ (Portfolio)</title>
+    <title>My Cute Portfolio 🌟</title>
+    <!-- นำเข้า Google Fonts ฟอนต์น่ารักๆ -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Itim&family=Mitr:wght@300;400;500&display=swap" rel="stylesheet">
+    
     <style>
-        /* ตั้งค่าพื้นฐาน */
+        /* ลอนคลื่นแอนิเมชันเปิดตัวหน้าเว็บ */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(3deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
         html {
-            scroll-behavior: smooth; /* ทำให้หน้าเว็บเลื่อนลงแบบนุ่มนวลเวลาคลิกลิงก์ */
+            scroll-behavior: smooth;
         }
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'Itim', 'Mitr', sans-serif;
+            background-color: #fff5f5; /* สีชมพูนมพาสเทลอ่อนๆ */
+            background-image: radial-gradient(#ffe3e3 15%, transparent 15%), radial-gradient(#ffe3e3 15%, transparent 15%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
             margin: 0;
             padding: 0;
-            background-color: #f4f7f6;
-            color: #333;
+            color: #5d5061;
         }
-        
-        /* ส่วนหัวและเมนูหลัก */
+
+        /* เมนูด้านบนสไตล์ขนมหวาน */
         header {
-            background-color: #2c3e50;
-            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 15px;
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(255, 182, 193, 0.3);
             z-index: 1000;
+            backdrop-filter: blur(5px);
         }
         nav {
             max-width: 1000px;
@@ -37,123 +60,179 @@
             flex-wrap: wrap;
         }
         nav a {
-            color: #fff;
+            color: #ff7b90;
             text-decoration: none;
-            margin: 5px 15px;
+            margin: 5px 12px;
             font-weight: bold;
-            font-size: 1rem;
-            transition: color 0.3s;
+            font-size: 1.1rem;
+            padding: 5px 12px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
         }
+        /* เอฟเฟกต์ขยับตอนเอาเมาส์ชี้เมนู */
         nav a:hover {
-            color: #1abc9c;
+            background-color: #ff7b90;
+            color: white;
+            transform: scale(1.1) rotate(-2deg);
         }
 
         /* กล่องเนื้อหาหลัก */
         .container {
-            max-width: 800px;
-            margin: 120px auto 50px auto; /* เว้นระยะด้านบนหลบเมนูที่ยึดไว้ */
+            max-width: 700px;
+            margin: 140px auto 60px auto;
             padding: 0 20px;
         }
 
-        /* ตกแต่งแต่ละหัวข้อ */
+        /* ตกแต่งกล่องข้อความแต่ละหัวข้อให้มนๆ เหมือนก้อนเมฆ */
         section {
-            background: #fff;
+            background: white;
             padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 35px;
+            border-radius: 30px;
+            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
+            border: 3px dashed #ffe3e3;
+            animation: fadeIn 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
         }
+
+        /* แอนิเมชันรูปตกแต่งดุ๊กดิ๊กด้านมุมกล่อง (ภาพเคลื่อนไหว) */
+        section::after {
+            content: "✨";
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
         h2 {
-            color: #2c3e50;
-            border-bottom: 2px solid #1abc9c;
-            padding-bottom: 10px;
+            color: #ff6b81;
+            font-size: 1.6rem;
+            border-bottom: 3px dotted #ffb6c1;
+            padding-bottom: 8px;
             margin-top: 0;
+            display: inline-block;
         }
-        ul {
-            padding-left: 20px;
-        }
-        li {
+
+        /* ตกแต่งตัวการ์ตูนต้อนรับด้านบน */
+        .welcome-avatar {
+            text-align: center;
+            font-size: 4rem;
+            animation: float 4s ease-in-out infinite;
             margin-bottom: 10px;
         }
+
+        ul {
+            list-style-type: "🌸 ";
+            padding-left: 25px;
+        }
+        li {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        
+        /* สไตล์ลิงก์ติดต่อ */
         .contact-link {
-            color: #3498db;
+            color: #ff6b81;
             text-decoration: none;
+            font-weight: bold;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
         }
         .contact-link:hover {
-            text-decoration: underline;
+            border-color: #ff6b81;
+            padding-left: 5px;
+        }
+
+        /* ปุ่มกดดุ๊กดิ๊กพิเศษ */
+        .cute-btn {
+            display: inline-block;
+            background-color: #ffb6c1;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-    <!-- ส่วนที่ 1: เมนูลิงก์ตัวหนังสือ (กดแล้วจะเลื่อนไปยังส่วนนั้นๆ) -->
+    <!-- แถบเมนูสีหวานขยับได้ -->
     <header>
         <nav>
-            <a href="#about">1. ประวัติส่วนตัว</a>
-            <a href="#education">2. ประวัติการศึกษา</a>
-            <a href="#activities">3. ผลงานและกิจกรรม</a>
-            <a href="#skills">4. ความสามารถและทักษะ</a>
-            <a href="#certificates">5. เกียรติบัตร</a>
-            <a href="#contact">6. ช่องทางการติดต่อ</a>
+            <a href="#about">☁️ 1. ประวัติส่วนตัว</a>
+            <a href="#education">🎒 2. การศึกษา</a>
+            <a href="#activities">🎨 3. ผลงานกิจกรรม</a>
+            <a href="#skills">🍰 4. ทักษะความสามารถ</a>
+            <a href="#certificates">🏆 5. เกียรติบัตร</a>
+            <a href="#contact">💌 6. ติดต่อเรา</a>
         </nav>
     </header>
 
     <div class="container">
 
+        <!-- ตัวการ์ตูนดุ๊กดิ๊กต้อนรับ -->
+        <div class="welcome-avatar">(｡♥‿♥｡)</div>
+
         <!-- 1. ประวัติส่วนตัว -->
         <section id="about">
-            <h2>1. ประวัติส่วนตัว</h2>
-            <p><strong>ชื่อ-นามสกุล:</strong> นายสมชาย ดีใจ</p>
-            <p><strong>ชื่อเล่น:</strong> ชาย</p>
-            <p><strong>วันเกิด:</strong> 1 มกราคม 2545</p>
-            <p><strong>บทสรุปตัวเอง:</strong> นักพัฒนาเว็บรุ่นใหม่ที่หลงใหลในการเขียนโค้ดและสร้างสรรค์เว็บไซต์ที่มีประโยชน์ต่อผู้ใช้งาน</p>
+            <h2>☁️ 1. ประวัติส่วนตัว</h2>
+            <p><strong>ชื่อ-นามสกุล:</strong> น้องพาสเทล น่ารักดี</p>
+            <p><strong>ชื่อเล่น:</strong> ถุงแป้ง</p>
+            <p><strong>วันเกิด:</strong> 14 กุมภาพันธ์ ♥</p>
+            <p><strong>คติประจำใจ:</strong> เหนื่อยก็พัก แล้วค่อยตื่นมากินขนมหวานแล้วลุยต่อ!</p>
         </section>
 
         <!-- 2. ประวัติการศึกษา -->
         <section id="education">
-            <h2>2. ประวัติการศึกษา</h2>
+            <h2>🎒 2. ประวัติการศึกษา</h2>
             <ul>
-                <li><strong>มัธยมศึกษาตอนปลาย:</strong> โรงเรียนวิทยาศาสตร์ (สายวิทย์-คณิต)</li>
-                <li><strong>ปริญญาตรี:</strong> มหาวิทยาลัยเทคโนโลยี สาขาวิทยาการคอมพิวเตอร์</li>
+                <li><strong>มัธยมศึกษา:</strong> โรงเรียนกิ๊วก๊าววิทยา (สายศิลป์-คำนวณ)</li>
+                <li><strong>ปริญญาตรี:</strong> มหาวิทยาลัยเบเกอรี่ คณะวิทยาการน่ารัก</li>
             </ul>
         </section>
 
         <!-- 3. ผลงานและกิจกรรม -->
         <section id="activities">
-            <h2>3. ผลงานและกิจกรรม</h2>
+            <h2>🎨 3. ผลงานและกิจกรรม</h2>
             <ul>
-                <li><strong>2025:</strong> พัฒนาเว็บไซต์ระบบจัดการคลังสินค้าขนาดเล็ก</li>
-                <li><strong>2024:</strong> เข้าร่วมกิจกรรมแข่งขัน Hackathon ประจำปีของมหาวิทยาลัย</li>
-                <li><strong>2023:</strong> เป็นประธานชมรมคอมพิวเตอร์และเทคโนโลยี</li>
+                <li><strong>2568:</strong> ออกแบบธีมสติกเกอร์ไลน์สุดคิ้วท์ ยอดดาวน์โหลด 1,000+</li>
+                <li><strong>2567:</strong> เข้าร่วมค่ายเยาวชนสร้างสรรค์เว็บสวยด้วยมือเรา</li>
+                <li><strong>2566:</strong> ตัวแทนถือป้ายขบวนพาเหรดงานกีฬาสี</li>
             </ul>
         </section>
 
         <!-- 4. ความสามารถและทักษะ -->
         <section id="skills">
-            <h2>4. ความสามารถและทักษะ</h2>
-            <p><strong>ทักษะทางเทคนิค (Hard Skills):</strong> HTML, CSS, JavaScript, Responsive Web Design</p>
-            <p><strong>ทักษะทางสังคม (Soft Skills):</strong> การทำงานเป็นทีม, การแก้ไขปัญหาเฉพาะหน้า, การสื่อสาร</p>
+            <h2>🍰 4. ความสามารถและทักษะ</h2>
+            <p><strong>ความสามารถพิเศษ:</strong> วาดรูปการ์ตูนลายเส้นมินิมอล, ตกแต่งภาพโทนละมุน</p>
+            <p><strong>ทักษะคอมพิวเตอร์:</strong> HTML / CSS ระดับเริ่มต้น, Canva Pro, Photoshop</p>
         </section>
 
         <!-- 5. เกียรติบัตร -->
         <section id="certificates">
-            <h2>5. เกียรติบัตร</h2>
+            <h2>🏆 5. เกียรติบัตร</h2>
             <ul>
-                <li>เกียรติบัตรผู้ผ่านการอบรมหลักสูตร Full Stack Web Developer</li>
-                <li>รางวัลรองชนะเลิศอันดับ 1 การประกวดโครงงานซอฟต์แวร์ระดับภูมิภาค</li>
+                <li>ได้รับรางวัลขวัญใจมหาชน ประกวดวาดภาพระบายสีพาสเทล <a href="#" class="cute-btn">ดูรูปใบเซอร์</a></li>
+                <li>ผ่านการทดสอบหลักสูตรความรู้พื้นฐานการออกแบบเว็บไซต์น่ารัก</li>
             </ul>
         </section>
 
         <!-- 6. ช่องทางการติดต่อ -->
         <section id="contact">
-            <h2>6. ช่องทางการติดต่อ</h2>
-            <p><strong>อีเมล:</strong> <a class="contact-link" href="mailto:somchai@email.com">somchai@email.com</a></p>
-            <p><strong>เบอร์โทรศัพท์:</strong> 081-234-5678</p>
-            <p><strong>LinkedIn:</strong> <a class="contact-link" href="https://linkedin.com" target="_blank">://linkedin.com</a></p>
-            <p><strong>GitHub:</strong> <a class="contact-link" href="https://github.com" target="_blank">://github.com</a></p>
+            <h2>💌 6. ช่องทางการติดต่อ</h2>
+            <p><strong>เบอร์โทรสุดคิ้วท์:</strong> 089-xxx-xxxx</p>
+            <p><strong>Email:</strong> <a class="contact-link" href="mailto:cute@example.com">cute@example.com</a></p>
+            <p><strong>Instagram:</strong> <a class="contact-link" href="https://instagram.com" target="_blank">@cute_pastel</a></p>
+            <p><strong>Facebook:</strong> <a class="contact-link" href="https://facebook.com" target="_blank">Pastel Studio</a></p>
         </section>
 
     </div>
 
 </body>
 </html>
+
+
