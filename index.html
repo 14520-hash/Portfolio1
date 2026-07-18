@@ -1,315 +1,161 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Futuristic Portfolio</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Chakra+Petch:wght@300;500;700&family=Prompt:wght@200;400;600&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cloudflare.com">
-    
-    <!-- AOS Animation Library CSS -->
-    <link href="https://unpkg.com" rel="stylesheet">
 
-    <style>
-        /* --- Root Variables & Reset --- */
-        :root {
-            --bg-color: #0a0f1d;
-            --card-bg: rgba(16, 24, 48, 0.7);
-            --primary: #00f2fe;
-            --secondary: #4facfe;
-            --text-main: #ffffff;
-            --text-muted: #8b9bb4;
-            --glow: 0 0 15px rgba(0, 242, 254, 0.4);
-        }
+    <title>About | Anawin Portfolio</title>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-        html {
-            scroll-behavior: smooth;
-        }
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: 'Prompt', sans-serif;
-            overflow-x: hidden;
-        }
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-        /* --- Canvas Background เคลื่อนไหว --- */
-        #bg-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-        }
+    <link rel="stylesheet"
+    href="css/style.css">
 
-        /* --- Navigation Bar --- */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 15, 29, 0.85);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 242, 254, 0.2);
-            padding: 15px 0;
-            text-align: center;
-            z-index: 1000;
-        }
-
-        nav a {
-            color: var(--text-muted);
-            text-decoration: none;
-            margin: 0 12px;
-            font-family: 'Chakra Petch', sans-serif;
-            font-size: 15px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        nav a:hover {
-            color: var(--primary);
-            text-shadow: var(--glow);
-            transform: translateY(-2px);
-        }
-
-        /* --- Hero Header Section --- */
-        header {
-            height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding-top: 80px;
-        }
-
-        header h1 {
-            font-family: 'Chakra Petch', sans-serif;
-            font-size: 3rem;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-        }
-
-        /* เอฟเฟกต์พิมพ์ดีดอัตโนมัติ */
-        .typing-text {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            border-right: 2px solid var(--primary);
-            white-space: nowrap;
-            animation: blink 0.75s step-end infinite;
-            max-width: fit-content;
-        }
-
-        /* --- Main Container --- */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px 100px 20px;
-        }
-
-        /* --- Section Styling --- */
-        section {
-            background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(5px);
-            padding: 40px;
-            margin-bottom: 50px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            scroll-margin-top: 100px;
-        }
-
-        section:hover {
-            transform: translateY(-5px);
-            border-color: rgba(0, 242, 254, 0.3);
-            box-shadow: 0 15px 35px rgba(0, 242, 254, 0.1);
-        }
-
-        h2 {
-            font-family: 'Chakra Petch', sans-serif;
-            color: var(--primary);
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        h2 i {
-            font-size: 1.5rem;
-        }
-
-        p, li {
-            color: var(--text-muted);
-            line-height: 1.8;
-            font-size: 1rem;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        li {
-            margin-bottom: 15px;
-            position: relative;
-            padding-left: 25px;
-        }
-
-        li::before {
-            content: "➢";
-            position: absolute;
-            left: 0;
-            color: var(--secondary);
-        }
-
-        /* --- Tech Badges (ทักษะ) --- */
-        .badge-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .badge {
-            background: rgba(0, 242, 254, 0.1);
-            border: 1px solid rgba(0, 242, 254, 0.3);
-            color: var(--primary);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-
-        .badge:hover {
-            background: var(--primary);
-            color: var(--bg-color);
-            box-shadow: var(--glow);
-        }
-
-        /* --- Custom Interactive Buttons / Links --- */
-        .web-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--bg-color);
-            text-decoration: none;
-            padding: 8px 18px;
-            border-radius: 8px;
-            font-weight: 600;
-            margin-top: 8px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-
-        .web-btn:hover {
-            transform: scale(1.05);
-            box-shadow: var(--glow);
-            filter: brightness(1.1);
-        }
-
-        /* --- Contact Grid --- */
-        .contact-grid {
-            display: grid;
-            grid-template-cols: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .contact-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            transition: all 0.3s;
-        }
-
-        .contact-card:hover {
-            background: rgba(0, 242, 254, 0.05);
-            border-color: var(--primary);
-        }
-
-        .contact-card i {
-            font-size: 2rem;
-            color: var(--secondary);
-            margin-bottom: 10px;
-        }
-
-        .contact-card a {
-            display: block;
-            color: var(--text-main);
-            text-decoration: none;
-            margin-top: 10px;
-            font-size: 0.9rem;
-        }
-
-        /* --- Keyframes สำหรับส่วนที่ขยับ --- */
-        @keyframes blink {
-            from, to { border-color: transparent }
-            50% { border-color: var(--primary); }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav {
-                display: flex;
-                overflow-x: auto;
-                white-space: nowrap;
-                padding: 15px 10px;
-            }
-            header h1 { font-size: 2.2rem; }
-            section { padding: 25px; }
-        }
-    </style>
 </head>
+
 <body>
 
-    <!-- พื้นหลังเม็ดบีดวิ่งๆ ขยับได้ -->
-    <canvas id="bg-canvas"></canvas>
+<header>
 
-    <!-- เมนูบาร์ด้านบนสุดดึงดูดสายตา -->
-    <nav>
-        <a href="#about"><i class="fa-solid fa-user"></i> 1. ประวัติส่วนตัว</a>
-        <a href="#education"><i class="fa-solid fa-graduation-cap"></i> 2. การศึกษา</a>
-        <a href="#works"><i class="fa-solid fa-briefcase"></i> 3. ผลงาน</a>
-        <a href="#skills"><i class="fa-solid fa-code"></i> 4. ทักษะ</a>
-        <a href="#certificates"><i class="fa-solid fa-award"></i> 5. รางวัล</a>
-        <a href="#contact"><i class="fa-solid fa-envelope"></i> 6. ติดต่อ</a>
-    </nav>
+<nav>
 
-    <!-- หัวข้อเปิดตัวเท่ๆ -->
-    <header>
-        <h1 data-aos="zoom-in">WELCOME TO PORTFOLIO</h1>
-        <div class="typing-text" id="typewriter"></div>
-    </header>
+<div class="logo">
+⚙ PORTFOLIO
+</div>
 
-    <div class="container">
+<ul>
 
-        <!-- 1. ประวัติส่วนตัว -->
-        <section id="about" data-aos="fade-up">
-            <h2><i class="fa-solid fa-user"></i> 1. ประวัติส่วนตัว</h2>
-            <p><strong>ชื่อ-นามสกุล:</strong> นายธนภัทร มั่นคง (เดฟ)</p>
-            <p><strong>ตำแหน่งที่สนใจ:</strong> Full Stack Developer / Web Designer</p>
-            <p style="margin-bottom: 15px;">นิยามตนเอง: ผู้หลงใหลในเทคโนโลยีล้ำสมัยและการออกแบบ UI/UX ที่มอบประสบการณ์ขยับเขยื้อนอย่างลื่นไหลให้กับผู้ใช้งาน</p>
-            <a href="https://example.com" target="_blank" class="web-btn"><i class="fa-solid fa-globe"></i> เข้าชมเว็บประวัติเต็ม</a>
-        </section>
+<li><a href="index.html">Home</a></li>
 
-                    <strong>ระดับ
+<li><a href="about.html">About</a></li>
+
+<li><a href="skills.html">Skills</a></li>
+
+<li><a href="projects.html">Projects</a></li>
+
+<li><a href="certificates.html">Certificates</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<section class="about">
+
+<div class="title">
+
+<h1>About Me</h1>
+
+<div class="line"></div>
+
+</div>
+
+<div class="about-content">
+
+<div class="profile-card">
+
+<img src="images/profile1.jpg" alt="sattha">
+
+<h3>SATTHA</h3>
+
+<p>Future Lndustrial Engineer</p>
+
+</div>
+
+<div class="about-text">
+
+<h2>Hello, I'm <span>Sattha</span></h2>
+
+<p>
+
+ผมเป็นนักเรียนชั้นมัธยมศึกษาปีที่ 6
+ที่มีความสนใจด้าน
+<strong> มิวสิก </strong>
+
+มีความมุ่งมั่นในการเรียนรู้
+สนใจในด้านดนตรี รักในเสียงดนตรี
+
+</p>
+
+<p>
+
+ปัจจุบันกำลังพัฒนาทักษะด้าน
+
+HTML
+
+CSS
+
+GitHub
+
+Canva
+
+และการออกแบบเว็บไซต์
+เพื่อเตรียมความพร้อมสำหรับการศึกษาต่อในระดับมหาวิทยาลัย
+
+</p>
+
+<div class="info">
+
+<div class="box">
+
+<h3>🎓 Education</h3>
+
+<p>Senior High School (Grade 12)</p>
+
+</div>
+
+<div class="box">
+
+<h3>🎸 Interest</h3>
+
+<p>Lndustrial Engineering</p>
+
+</div>
+
+<div class="box">
+
+<h3>💻 Skills</h3>
+
+<p>HTML • CSS • GitHub • Canva</p>
+
+</div>
+
+<div class="box">
+
+<h3>🎯 Goal</h3>
+
+<p>ศึกษาต่อคณะวิศวกรรมศาสตร์</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+
+© 2026 Sattha Yochana | Portfolio
+
+</p>
+
+</footer>
+
+</body>
+
+</html>
